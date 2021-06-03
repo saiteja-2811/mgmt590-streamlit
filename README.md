@@ -52,19 +52,19 @@ Streamlit contains built-in widgets for user input like image-uploading, sliders
 ### Below is the preview to all the functionalities of the web application.
 
 - Get List of Models : Used to get list of models in the DB 
-![Get](images/list_model.JPG)
+![Get](images/list_model.png)
 
 - Insert a model : Used to insert a model with the model name, model type, tokenizer of the model. ()
-![Insert](images/add_a_model.JPG)
+![Insert](images/add_a_model.png)
 
 - Delete a model
-- ![Delete](images/delete_model.JPG)
+- ![Delete](images/delete_model.png)
 
 - Get Answers
-- ![Get](images/answer_q.JPG)
+- ![Get](images/answer_q.png)
 
 - Recently Answered Questions
-- ![Recent](images/list_recent.JPG)
+- ![Recent](images/list_recent.png)
 
 ## Dependencies
 

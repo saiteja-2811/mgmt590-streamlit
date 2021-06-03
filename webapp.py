@@ -160,7 +160,7 @@ def recent_answers():
     # Execute question answering on button press
     if st.button('Fetch Recent Queries'):
         headers = {'Content-Type': 'application/json'}
-        if model != None:
+        if model != "None":
 
             response = requests.request("GET", url + "answer?model=" + model + "&start=" + start + "&end=" + end,
                                         headers=headers)

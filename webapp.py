@@ -113,7 +113,7 @@ def answer_question_file_upload():
             answer.append(curr_answer)
 
 
-            #print(answer)
+    #print(answer)
     time.sleep(10)
     data["answer"] = answer
     st.title('The Answer To your Questions')

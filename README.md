@@ -1,48 +1,70 @@
-# Assignment 3 : MGMT 590, Production Scale Data Products, Summer 2021
+# Assignment 3 : Streamlit App+ REST API+ PostgreSQL
 
-## Creating Web Application - Question Answering
+## Architecture and Flow of the entire project 
 
-Purpose of the this hands-on project was to create a Web Application using Stream Lit API
-The app is deployed at: https://mgmt590-webapp-ykof2ki2ga-uc.a.run.app
+![Flow](images/api_flow.png)
 
-## Learning Outcomes
+## REST API architecture
 
-At the end of the this hands-on training, students will be able to;
+![Architecture](images/Blank_diagram.png)
 
-- Understood the achitechture of the Webapp
+## Purpose of the Question Answering App
 
-- Get fimiliar with the Streamlit content
+Motive of the assignment was to create a Question Answering Web App using Stream Lit and link it to the API created in assignment 2. This app will give a front end user to access API.
+The link to app: https://mgmt590-webapp-ykof2ki2ga-uc.a.run.app
 
-- Automated deploy using a GitHub Action that executes the following on merges into the
-master branch of your GitHub repository
+## Topics explored and learned
 
-- Build an accessible webapplication
+By working on this assignment I got familiar with the following:
 
-- Use git repo to manage the application versioning.
+- Understood the flow and achitechture of the Webapp and the rest api connection
 
-- Using cloud SQL database to run the application.
+- Get fimiliar with the Streamlit functions and content
+
+- How github actions autodeploy to gcloud
+
+- Using POSTGRESQL on Gcloud for storing data from API.
+
+- Use git repo for version control.
+
+- How to make an application that is publicly accesible
+
+##I) Idea behind the app 
+## Creating the - Question Answering web app
+The objective for this project was to deploy a web app created on the foundation of a REST API created previously.
+The webapp integrates Natural Language Processing algorithms such as the Hugging Face Transformers to enable automated Question Answering. 
+In brief, Question Answering is method of information retrieval that uses Machine Learning to extract answers for questions asked by humans in natural language. In Extractive Question Answering, a context is provided so that the model can refer to it and make predictions on where the answer lies within the passage.
+
+The app is deployed at: https://mgmt590-webapp-m5fhjkh4wq-uc.a.run.app
+
+Firstly, we created an API. We used Flask, a web framework for Python that provides functionality for building web applications, including managing HTTP requests and rendering templates. The advantage of using Flask is that applications tend to be written on a blank canvas, so to speak, and so are more suited to a contained application such as our prototype API. Further, we used the prevailing design philosophy of modern APIs called REST. REST is based on four methods defined by the HTTP protocol: POST, GET, PUT, and DELETE. These correspond to the four traditional actions performed on data in a database: CREATE, READ, UPDATE, and DELETE. We finally tested our REST API on Google Cloud Run and got desirable results. 
+
+We covered more about creating a REST API in a previous project which can be found here: https://github.com/sandsoftime11/rest-api-2/blob/main/README.md
+
+##II)  User guide for the app 
+After successfully creating the REST API, the next step was to create a user interface. A user interface is what the final user will experience on the web app. 
+It is built upon a skeleton code which is the REST API. 
+For this purpose, we used the Streamlit framework, in which you can build a browser-based UI using only Python code. 
+Streamlit contains built-in widgets for user input like image-uploading, sliders, text input, and other familiar HTML elements like checkboxes and radio buttons.
 
 ## User Guide
 
 ### Below is the preview to all the functionalities of the web application.
 
 - Get List of Models : Used to get list of models in the DB 
-![Get](./one.PNG)
+![Get](images/list_model.JPG)
 
 - Insert a model : Used to insert a model with the model name, model type, tokenizer of the model. ()
-![Insert](./two.png)
+![Insert](images/add_a_model.JPG)
 
 - Delete a model
-- ![Delete](./three.png)
+- ![Delete](images/delete_model.JPG)
 
 - Get Answers
-- ![Get](./three.png)
+- ![Get](images/answer_q.JPG)
 
 - Recently Answered Questions
-- ![Recent](./four.png)
-
-- Upload a file with questions to get the answers
-- ![Upload](./five.PNG)
+- ![Recent](images/list_recent.JPG)
 
 ## Dependencies
 

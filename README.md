@@ -55,7 +55,7 @@ Streamlit contains built-in widgets for user input like image-uploading, sliders
 ![Get](images/List.PNG)
 
 - Insert a model : Used to insert a model with the model name, model type, tokenizer of the model. ()
-![Insert](images/Add.PNG)
+![Insert](images/Add.png)
 
 - Delete a model
 - ![Delete](images/Delete.PNG)
@@ -67,7 +67,7 @@ Streamlit contains built-in widgets for user input like image-uploading, sliders
 - ![Recent](images/Recent.PNG)
 
 - File Upload and get answers
-- ![Upload](images/Upload.PNG)
+- ![Upload](images/File.PNG)
 
 ## Dependencies
 

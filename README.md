@@ -35,11 +35,11 @@ The objective for this project was to deploy a web app created on the foundation
 The webapp integrates Natural Language Processing algorithms such as the Hugging Face Transformers to enable automated Question Answering. 
 In brief, Question Answering is method of information retrieval that uses Machine Learning to extract answers for questions asked by humans in natural language. In Extractive Question Answering, a context is provided so that the model can refer to it and make predictions on where the answer lies within the passage.
 
-The app is deployed at: https://mgmt590-webapp-m5fhjkh4wq-uc.a.run.app
+The app is deployed at: https://mgmt590-webapp-ykof2ki2ga-uc.a.run.app/
 
 Firstly, we created an API. We used Flask, a web framework for Python that provides functionality for building web applications, including managing HTTP requests and rendering templates. The advantage of using Flask is that applications tend to be written on a blank canvas, so to speak, and so are more suited to a contained application such as our prototype API. Further, we used the prevailing design philosophy of modern APIs called REST. REST is based on four methods defined by the HTTP protocol: POST, GET, PUT, and DELETE. These correspond to the four traditional actions performed on data in a database: CREATE, READ, UPDATE, and DELETE. We finally tested our REST API on Google Cloud Run and got desirable results. 
 
-We covered more about creating a REST API in a previous project which can be found here: https://github.com/sandsoftime11/rest-api-2/blob/main/README.md
+We covered more about creating a REST API in a previous project which can be found here: https://github.com/saiteja-2811/mgmt590-lec2/blob/master/README.md
 
 ##II)  User guide for the app 
 After successfully creating the REST API, the next step was to create a user interface. A user interface is what the final user will experience on the web app. 

@@ -16,7 +16,7 @@ import os
 #-----------------------------------------#
 # Calling the Question Answering REST API #
 #-----------------------------------------#
-url = os.environ.get("URL")
+url = "https://mgmt590-api-ykof2ki2ga-uc.a.run.app"
 
 def flatten_dict(d):
     """ Returns list of lists from given dictionary """

@@ -5,8 +5,11 @@ import json
 import streamlit as st
 import pandas as pd
 from transformers.pipelines import pipeline
+import warnings
 
-url = "https://mgmt590-api-ykof2ki2ga-uc.a.run.app"
+warnings.filterwarnings('ignore')
+
+url = "https://mgmt590-api-ykof2ki2ga-uc.a.run.app/"
 
 
 def flatten_dict(d):
@@ -29,24 +32,12 @@ def flatten_dict(d):
 
     return l
 
+
 def answer_question():
     # Inputs
     question = st.text_input('Question')
     context = st.text_area('Context')
-    #model = st.text_input('Model', value="Default(distilled-bert)")
-    headers = {'Content-Type': 'application/json'}
-    response = requests.request("GET", url + "models", headers=headers)
-    print(response)
-    answer = response.json()
-    df = pd.DataFrame.from_dict(answer, orient='columns')
-    model_list = df["name"].tolist()
-    model = None
-
-    if st.checkbox('Choose a Model(optional)'):
-        model = st.selectbox(
-            "Available Models",
-            model_list
-        )
+    model = st.text_input('Model', value="Default(distilled-bert)")
 
     # Execute question answering on button press
     if st.button('Answer Question'):
@@ -59,14 +50,13 @@ def answer_question():
         headers = {'Content-Type': 'application/json'}
         print(model)
         if model != "Default(distilled-bert)":
-            response = requests.request("POST", url + "answer?model="+model, headers=headers, data=payload)
+            response = requests.request("POST", url + "answer?model=" + model, headers=headers, data=payload)
             answer = response.json()
         else:
             response = requests.request("POST", url + "answer", headers=headers, data=payload)
             answer = response.json()
 
-
-        value=[]
+        value = []
         value.append(answer)
         print(value)
         df = pd.DataFrame.from_dict(value, orient='columns')
@@ -74,8 +64,9 @@ def answer_question():
         st.title('The Answer To your Question')
         st.table(df)
 
+
 def answer_question_file_upload():
-    uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
+    uploaded_file = st.file_uploader("Choose a file", type=['csv', 'xlsx'])
 
     global data
     if uploaded_file is not None:
@@ -85,7 +76,6 @@ def answer_question_file_upload():
         except Exception as e:
             print(e)
             data = pd.read_excel(uploaded_file)
-
 
     time.sleep(5)
     if st.button("Load Data"):
@@ -100,37 +90,32 @@ def answer_question_file_upload():
     df = pd.DataFrame.from_dict(answer, orient='columns')
     model_list = df["name"].tolist()
     menu = "distilled-bert"
+    menu = st.selectbox(
+        "Available Models",
+        model_list
+    )
 
-    if st.checkbox('Choose a Model(optional)'):
-        menu = st.selectbox(
-            "Available Models",
-            model_list
-        )
+    train = df.loc[df['name'] == menu]
+
+    model = train['model'].tolist()[0]
+    tokenizer = train['model'].tolist()[0]
+
     if st.button('Answer Question'):
 
-        train = df.loc[df['name'] == menu]
-
-        model = train['model'].tolist()[0]
-        print(model)
-        tokenizer = train['model'].tolist()[0]
         hg_comp = pipeline('question-answering', model=model,
                            tokenizer=tokenizer)
+        time.sleep(5)
         answer = []
-        #model = st.text_input('Model', value="Default(distilled-bert)")
-
-        count = 0
-
-
-
+        # model = st.text_input('Model', value="Default(distilled-bert)")
         for idx, row in data.iterrows():
             context = row['context']
             question = row['question']
             curr_answer = hg_comp({'question': question, 'context': context})['answer']
+            time.sleep(2)
             answer.append(curr_answer)
 
-
-            #print(answer)
-    time.sleep(15)
+    # print(answer)
+    time.sleep(10)
     data["answer"] = answer
     st.title('The Answer To your Questions')
     st.table(data)
@@ -165,30 +150,16 @@ def answer_question_file_upload():
     #     st.title('The Answer To your Question')
     #     st.table(df)
 
+
 def recent_answers():
     # Inputs
     start = st.text_input('Start Time')
     end = st.text_area('End Time')
-    #model = st.text_area('Model',value="None")
-
-    headers = {'Content-Type': 'application/json'}
-    response = requests.request("GET", url + "models", headers=headers)
-    print(response)
-    answer = response.json()
-    df = pd.DataFrame.from_dict(answer, orient='columns')
-    model_list = df["name"].tolist()
-    model = None
-
-    if st.checkbox('Choose a Model(optional)'):
-        model = st.selectbox(
-            "Available Models",
-            model_list
-        )
+    model = st.text_area('Model', value="None")
 
     # Execute question answering on button press
     if st.button('Fetch Recent Queries'):
         headers = {'Content-Type': 'application/json'}
-
         if model != None:
 
             response = requests.request("GET", url + "answer?model=" + model + "&start=" + start + "&end=" + end,
@@ -208,23 +179,8 @@ def recent_answers():
 
 def delete_models():
     # Inputs
-    #model = st.text_input('Model')
+    model = st.text_input('Model')
 
-    headers = {'Content-Type': 'application/json'}
-    response = requests.request("GET", url + "models", headers=headers)
-    print(response)
-    answer = response.json()
-    df = pd.DataFrame.from_dict(answer, orient='columns')
-    model_list = df["name"].tolist()
-    model_list = model_list[1:]
-
-    model = None
-
-    if st.checkbox('Choose a Model(You cant delete the Default Model)'):
-        model = st.selectbox(
-            "Available Models",
-            model_list
-        )
     # Execute question answering on button press
     if st.button('Delete Model'):
         print(model)

@@ -51,23 +51,23 @@ Streamlit contains built-in widgets for user input like image-uploading, sliders
 
 ### Below is the preview to all the functionalities of the web application.
 
-- Get List of Models : Used to get list of models in the DB 
+- Get List of Models : Used to get list of models available in the Data Base 
 ![Get](images/List.PNG)
 
-- Insert a model : Used to insert a model with the model name, model type, tokenizer of the model. ()
+- Insert a model : Enter a `model name`, `model type`, `tokenizer` --> Click on `Add a model` button 
 ![Insert](images/Add.png)
 
-- Delete a model
-- ![Delete](images/Delete.PNG)
+- Delete a model : Select a model from dropdown --> Click on `Delete a model` button 
+![Delete](images/Delete.PNG)
 
-- Get Answers
-- ![Get](images/Answer.PNG)
+- Get Answers : Enter a `question` --> Enter a `context` --> Select the model you want to use --> Click on `Answer Question` button. **default model is `distilled bert`**
+![Get](images/Answer.PNG)
 
-- Recently Answered Questions
-- ![Recent](images/Recent.PNG)
+- Recently Answered Questions : Enter `start time` in UNIX format --> Enter `end time` in UNIX format --> Select the model you want to use --> Click on `Fet Recent Queries` button. **model input is `optional`**
+![Recent](images/Recent.PNG)
 
-- File Upload and get answers
-- ![Upload](images/File.PNG)
+- File Upload and get answers : `Upload` a file --> Click on `Load Data` --> Click on `get answers` for your answers.
+![Upload](images/File.PNG)
 
 ## Dependencies
 

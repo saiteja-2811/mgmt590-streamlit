@@ -27,22 +27,22 @@ master branch of your GitHub repository
 ### Below is the preview to all the functionalities of the web application.
 
 - Get List of Models : Used to get list of models in the DB 
-![sqlite-python-flask](./one.PNG)
+![Get](./one.PNG)
 
 - Insert a model : Used to insert a model with the model name, model type, tokenizer of the model. ()
-![sqlite-python-flask](./two.png)
+![Insert](./two.png)
 
 - Delete a model
-- ![sqlite-python-flask](./three.png)
+- ![Delete](./three.png)
 
 - Get Answers
-- ![sqlite-python-flask](./three.png)
+- ![Get](./three.png)
 
 - Recently Answered Questions
-- ![sqlite-python-flask](./four.png)
+- ![Recent](./four.png)
 
 - Upload a file with questions to get the answers
-- ![sqlite-python-flask](./five.PNG)
+- ![Upload](./five.PNG)
 
 ## Dependencies
 
@@ -74,7 +74,25 @@ If you experience problems you can always go back and use the version specified 
 
 To generate your own requirements file use
 
-    (venv) $ pip freeze >requirements.txt 
+    (venv) $ pip freeze >requirements.txt
+## ## Usage
+### Without Docker
+To run the dashboard, please execute the following from the root directory:
+```bash
+pip3 install -r requirements.txt
+streamlit run dashboard.py
+```
+When run locally, the dashboard is accessible here:
+```
+http://localhost:8501
+```
+
+### With Docker
+To run the web app using Docker containers, please execute the following from the root directory:
+```bash
+docker build -t dashboard .
+docker run -d --name dashboard -p 8501:8501 dashboard
+```
  
  
  

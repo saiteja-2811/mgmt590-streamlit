@@ -11,7 +11,6 @@ import json
 import streamlit as st
 import pandas as pd
 from transformers.pipelines import pipeline
-from transformers.pipelines import pipeline
 import os
 #-----------------------------------------#
 # Calling the Question Answering REST API #
@@ -176,7 +175,7 @@ def recent_answers():
         headers = {'Content-Type': 'application/json'}
 
         # Passing the default values if the model is not selected
-        if model != "None":
+        if model != None:
             response = requests.request("GET", url + "answer?model=" + model + "&start=" + start + "&end=" + end,
                                         headers=headers)
             answer = response.json()

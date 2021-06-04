@@ -11,11 +11,12 @@ import json
 import streamlit as st
 import pandas as pd
 from transformers.pipelines import pipeline
-
+from transformers.pipelines import pipeline
+import os
 #-----------------------------------------#
 # Calling the Question Answering REST API #
 #-----------------------------------------#
-url = os.environ.get('URL')
+url = "url={}".format(os.environ.get('URL'))
 
 def flatten_dict(d):
     """ Returns list of lists from given dictionary """

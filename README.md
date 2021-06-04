@@ -26,9 +26,10 @@ master branch of your GitHub repository
 
 ### Below is the preview to all the functionalities of the web application.
 
-- Get List of Models : 
+- Get List of Models : Used to get list of models in the DB 
+- ![sqlite-python-flask](./adding model.png)
 
-- Insert a model
+- Insert a model : Used to insert a model with the model name, model type, tokenizer of the model. ()
 
 - Delete a model
 

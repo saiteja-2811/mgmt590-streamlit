@@ -3,7 +3,7 @@
 ## Creating Web Application - Question Answering
 
 Purpose of the this hands-on project was to create a Web Application using Stream Lit API
-The app is deployed at: https://mgmt590-assignment-2-kbmrvvvzgq-uc.a.run.app
+The app is deployed at: https://mgmt590-webapp-ykof2ki2ga-uc.a.run.app
 
 ## Learning Outcomes
 
